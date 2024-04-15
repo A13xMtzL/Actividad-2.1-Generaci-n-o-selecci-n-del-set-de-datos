@@ -29,6 +29,9 @@ The dataset is divided into two folders: `train` and `test`.
 The `train` folder contains **4,461** images, while the `test` folder contains **1,918** images. Each image is labeled with the corresponding LEGO brick class.
 
 
+The images of the dataset were obtained from the [Kaggle site](https://www.kaggle.com/datasets/joosthazelzet/lego-brick-images).
+
 ## Running the Code
 
 You can run the code in the Jupyter notebook using any Python environment that supports Jupyter notebooks. If you want to run the code in Google Colab, you can uncomment the two lines at the beginning of the notebook that mount your Google Drive to the Colab environment and change the directory to the path of your drive. Make sure to change the path to the location where you have stored the dataset.
+
