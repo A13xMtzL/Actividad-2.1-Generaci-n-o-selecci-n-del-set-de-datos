@@ -28,8 +28,28 @@ The original dataset used in this code is not included in this repository due to
 The dataset is divided into two folders: `train` and `test`. 
 The `train` folder contains **4,461** images, while the `test` folder contains **1,918** images. Each image is labeled with the corresponding LEGO brick class.
 
-
 The images of the dataset were obtained from the [Kaggle site](https://www.kaggle.com/datasets/joosthazelzet/lego-brick-images).
+
+## Model
+
+The machine learning model used in this code is a Convolutional Neural Network (CNN). CNNs are particularly effective for image classification tasks due to their ability to learn hierarchical features from images. The model architecture consists of multiple convolutional layers followed by max-pooling layers to extract features from the input images. It then includes fully connected layers for classification.
+
+### Model Summary:
+
+- **Input Shape:** (150, 150, 3) - Represents the dimensions of the input images (150x150 pixels with 3 color channels).
+- **Convolutional Layers:** Four convolutional layers with increasing numbers of filters (32, 64, 128, 128) and ReLU activation functions.
+- **Pooling Layers:** Four max-pooling layers to reduce the spatial dimensions of the feature maps.
+- **Dense Layers:** One fully connected layer with 512 neurons and ReLU activation, followed by the output layer with 16 neurons (one for each LEGO brick class) and softmax activation.
+- **Loss Function:** Categorical Crossentropy - Suitable for multi-class classification tasks.
+- **Optimizer:** RMSprop - An adaptive learning rate optimization algorithm.
+- **Metrics:** Accuracy - Evaluates the model's performance during training and validation.
+
+### Training:
+
+- **Number of Epochs:** 30 - Number of times the entire training dataset is passed forward and backward through the neural network.
+- **Batch Size:** 25 - Number of training samples utilized in one iteration.
+- **Steps per Epoch:** 100 - Total number of steps (batches of samples) before declaring one epoch finished.
+- **Validation Steps:** 50 - Total number of steps (batches of samples) to draw before stopping when performing validation at the end of each epoch.
 
 ## Running the Code
 
