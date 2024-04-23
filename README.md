@@ -49,6 +49,11 @@ Para la implementación del modelo, se realizó una investigación y revisión d
 - ["Learning Stackable And Skippable Lego Bricks For Efficient, Reconfigurable, And Variable-Resolution Diffusion Modeling"](https://arxiv.org/pdf/2310.06389.pdf)
 - ["Photos and rendered images of LEGO bricks"](https://www.nature.com/articles/s41597-023-02682-2.pdf)
 
+La implementación del modelo fue basado en el repositorio que podemos encontrar en el paper "Photos and rendered images of LEGO bricks". 
+
+[Enlace el repositorio](https://github.com/LegoSorter)  
+<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="alt text" width="50" height="50">
+
 ## Modelo
 
 El modelo utilizado en este es InceptionV3, una red neuronal convolucional (CNN) pre-entrenada. Las CNN son particularmente efectivas para tareas de clasificación de imágenes debido a su capacidad para aprender características jerárquicas de las imágenes. 
