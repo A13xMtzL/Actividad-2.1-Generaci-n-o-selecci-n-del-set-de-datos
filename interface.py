@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 
 # Cargar el modelo entrenado
-model = tf.keras.models.load_model("saved-model-20-stage2.keras")
+model = tf.keras.models.load_model("M2_IA/Act_2.1/__model_best_new_2.keras")
 
 # Lista de nombres de clases
 class_names = [
@@ -26,6 +26,28 @@ class_names = [
     "3794 Plate 1X2 with 1 Knob",
     "6632 Technic Lever 3M",
 ] 
+
+def add_background(image):
+    # Convert the image to an array
+    image_array = np.array(image)
+
+    # Check if the image has an alpha channel
+    if image_array.shape[2] == 4:
+        # Split the image into RGB and alpha channels
+        rgb = image_array[:, :, :3]
+        alpha = image_array[:, :, 3]
+
+        # Create a new image with the background color and the same size as the original image
+        background = np.full_like(rgb, [255, 255, 255])
+
+        # Blend the original image with the background
+        blended = (1 - alpha / 255) * background + (alpha / 255) * rgb
+
+        return blended.astype(np.uint8)
+    else:
+        return image_array
+        
+
 # Función para realizar la predicción
 def predict_image():
     # Abrir el cuadro de diálogo para seleccionar la imagen
@@ -34,6 +56,10 @@ def predict_image():
     # Cargar la imagen y redimensionarla a las dimensiones requeridas por el modelo
     img = Image.open(file_path).convert("RGB")
     img = img.resize((224, 224))
+
+    # Agregar un fondo blanco a la imagen si tiene un canal alfa
+    img_background = add_background(img)
+    img_background = Image.fromarray(img_background)
 
     # Mostrar la imagen en la interfaz gráfica
     img_preview = ImageTk.PhotoImage(img)
